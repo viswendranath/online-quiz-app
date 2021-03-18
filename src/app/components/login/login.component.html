@@ -1,0 +1,27 @@
+<div class="row d-flex flex-row justify-content-center align-items-center" style="height: 100vh;width: 100%;">
+    <div class="col-sm-12 d-flex flex-column justify-content-center align-items-center">
+        <mat-card>
+            <table>
+                <tr>
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Enter Username</mat-label>
+                        <input matInput #username>
+                    </mat-form-field>
+                </tr>
+                <tr>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" #password (keyup.enter)="tryLogin(username.value, password.value)">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </tr>
+                <tr align="center">
+                    <button mat-raised-button color="primary" (click)='tryLogin(username.value, password.value)'>Login</button>
+                </tr>
+            </table>
+        </mat-card>
+    </div>
+</div>

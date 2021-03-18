@@ -1,0 +1,7 @@
+.question{
+    display: inline-block;
+    font-size: large;
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }

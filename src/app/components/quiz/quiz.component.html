@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Online Quiz App</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container">
+    <div *ngFor='let item of quizData; let qIndex = index;'>
+        <div class="question">
+            {{qIndex+1}}. {{item.question}}
+        </div>
+        <br>
+        <mat-radio-group [id]="'cbox-group-' + qIndex">
+            <div *ngFor='let opt of item.options'>
+                <mat-radio-button value="{{opt}}">{{opt}}</mat-radio-button> <br>
+            </div>
+        </mat-radio-group>
+    </div>
+</div>
