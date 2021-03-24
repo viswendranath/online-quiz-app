@@ -1,19 +1,20 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Online Quiz App</span>
-    </mat-toolbar-row>
-</mat-toolbar>
+<app-navbar></app-navbar>
 
 <div class="container">
-    <div *ngFor='let item of quizData; let qIndex = index;'>
-        <div class="question">
+    <mat-card *ngFor='let item of quizData; let qIndex = index;'>
+        <div class="question" style="margin: 20px 20px 0px 20px">
             {{qIndex+1}}. {{item.question}}
         </div>
         <br>
-        <mat-radio-group [id]="'cbox-group-' + qIndex">
-            <div *ngFor='let opt of item.options'>
-                <mat-radio-button value="{{opt}}">{{opt}}</mat-radio-button> <br>
+        <mat-radio-group [id]="'cbox-group-' + qIndex" [(ngModel)]="submittedAnswers[qIndex]">
+            <div *ngFor='let opt of item.options; let optIndex = index;' style="margin: 20px;">
+                <mat-radio-button [value]="optIndex" [id]="'rb-' + qIndex + '-' + optIndex">{{opt}}</mat-radio-button> <br>
             </div>
         </mat-radio-group>
+    </mat-card>
+
+    <div class="col-sm-12 d-flex flex-column justify-content-center align-items-center" style="margin: 20px 0px;">
+
+        <button mat-raised-button color="primary" (click)="submitAnswers()" >Submit</button>
     </div>
 </div>

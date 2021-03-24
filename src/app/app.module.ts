@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,6 +17,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule } from '@angular/forms';
+import { ResultComponent } from './components/result/result.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { MatRadioModule } from '@angular/material/radio';
     QuizComponent,
     LoginComponent,
     HomeComponent,
-    QuizCardComponent
+    QuizCardComponent,
+    ResultComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +43,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatButtonModule,
     MatTabsModule,
     MatToolbarModule,
-    MatRadioModule
+    MatRadioModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

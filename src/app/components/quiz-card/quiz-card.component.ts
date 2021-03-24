@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
 })
 export class QuizCardComponent implements OnInit {
 
-  @Input() quizTitle: string = '';
-  @Input() quizUrl: string = '';
+  @Input() quizTitle!: string;
+  @Input() quizId!: string;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   goToQuiz(){
-    this.router.navigate([this.quizUrl]);
+    this.router.navigate(['quiz'], {queryParams: {"quizId": this.quizId }});
   }
 
 }

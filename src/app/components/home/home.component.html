@@ -1,17 +1,17 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Online Quiz App</span>
-    </mat-toolbar-row>
-</mat-toolbar>
+<app-navbar></app-navbar>
 
 <mat-tab-group mat-stretch-tabs>
     <mat-tab label="Active quizzes">
+        <!-- <div class="container w-100">
+            <ng-container *ngFor="let quiz of activeQuizzes">
+                <app-quiz-card quizTitle="{{ quiz.name }}" quizId="{{ quiz.id }}"></app-quiz-card>
+            </ng-container>
+        </div> -->
         <div class="container w-100">
-            <div class="col-sm-3">
-                <app-quiz-card quizTitle='First quiz' quizUrl='/quiz'></app-quiz-card>
-            </div>
+            <ng-container *ngFor="let quiz of activeQuizzes">
+                <app-quiz-card quizTitle="{{ quiz.name }}" quizId="{{ quiz.id }}"></app-quiz-card>
+            </ng-container>
         </div>
-
     </mat-tab>
     <mat-tab label="Completed quizzes"> Completed quizzes here</mat-tab>
 </mat-tab-group>

@@ -4,7 +4,7 @@
             <table>
                 <tr>
                     <mat-form-field appearance="fill" class="w-100">
-                        <mat-label>Enter Username</mat-label>
+                        <mat-label>Enter your Username</mat-label>
                         <input matInput #username>
                     </mat-form-field>
                 </tr>
@@ -20,6 +20,9 @@
                 </tr>
                 <tr align="center">
                     <button mat-raised-button color="primary" (click)='tryLogin(username.value, password.value)'>Login</button>
+                </tr>
+                <tr *ngIf="invalid==true" align="center">
+                    <span style="color: red; font-size: 11px;"> * Wrong credentials. Please try again </span>
                 </tr>
             </table>
         </mat-card>

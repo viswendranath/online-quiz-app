@@ -1,3 +1,4 @@
+import { LoginService } from './../../services/login.service';
 import { Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,21 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   hide: boolean = true;
-  constructor(private router: Router) { }
+  login: boolean = false;
+  invalid: boolean = false;
+
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
   tryLogin(username: string, password: string){
-    if(this.validCreds(username, password)){
-      console.log('logged in');
-      this.router.navigate(['/home'], {replaceUrl: true});
-    }else{
-      console.log('Wrong credentials');
-    }
+    this.loginService.verifyCreds(username,password).subscribe(resp=> {
+        this.login = resp.auth;
+        if(this.login){
+          this.router.navigate(['home']);
+        }else{
+          this.invalid = true;
+        }
+    });
   }
 
-  validCreds(username: string, password: string): boolean{
-    return username == 'test' && password == '1234';
-  }
 }
